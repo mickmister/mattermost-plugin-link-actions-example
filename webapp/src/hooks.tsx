@@ -29,8 +29,8 @@ export default class Hooks {
             props: {
                 [customPropName]: JSON.stringify({
                     '0 0': `/echo I'm a Rocket!`,
-                    '0 1': `/echo I'm a Smile!`,
-                    '0 2': `/echo I'm a Thumbs Up!`,
+                    '1 0': `/echo I'm a Smile!`,
+                    '2 0': `/echo I'm a Thumbs Up!`,
                 }),
             } as any,
         } as Post;
@@ -68,10 +68,10 @@ export default class Hooks {
         const [header, spacing, ...rows] = message.split('\n');
 
         for (const coord of Object.keys(tableData)) {
-            const [xStr, yStr] = coord.split(' ');
+            const [yStr, xStr] = coord.split(' ');
 
-            const x = parseInt(xStr);
             const y = parseInt(yStr);
+            const x = parseInt(xStr);
 
             const columns = rows[y].split('|');
             const cellText = columns[x + 1];

@@ -65,7 +65,7 @@ export default class Plugin {
             const tableDataProp: string = post.props[customPropName];
             const tableData: SlashCommandTableData = JSON.parse(tableDataProp);
 
-            const coord = `${x} ${y}`;
+            const coord = `${y} ${x}`;
             const slashCommand = tableData[coord];
 
             (Client4.executeCommand as unknown as (command: string, commandArgs: CommandArgs) => void)(slashCommand, {
